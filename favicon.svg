@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="url(#grad)"/>
+
+  <!-- Monitor/Screen icon -->
+  <rect x="25" y="28" width="50" height="35" rx="3" fill="white" opacity="0.95"/>
+  <rect x="28" y="31" width="44" height="26" fill="#1e293b"/>
+
+  <!-- Info dots/lines inside screen -->
+  <line x1="32" y1="36" x2="46" y2="36" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+  <line x1="32" y1="41" x2="52" y2="41" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+  <line x1="32" y1="46" x2="42" y2="46" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+  <line x1="32" y1="51" x2="56" y2="51" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Info icon circle -->
+  <circle cx="62" cy="46" r="6" fill="#22c55e"/>
+  <text x="62" y="51" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">i</text>
+
+  <!-- Base stand -->
+  <rect x="45" y="63" width="10" height="4" rx="1" fill="white" opacity="0.95"/>
+  <rect x="38" y="67" width="24" height="3" rx="1.5" fill="white" opacity="0.95"/>
+</svg>

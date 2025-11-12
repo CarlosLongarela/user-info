@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Información del sistema de usuario</title>
+	<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+	<link rel="stylesheet" href="./assets/css/style.css?v=1.1.8">
+</head>
+<body>
+	<button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+		<span class="theme-icon">🌙</span>
+	</button>
+
+	<div class="container">
+		<h1>Información del sistema de usuario</h1>
+		<div id="info-container" class="info-container">
+			<div class="info-section">
+				<h2>Navegador</h2>
+				<div id="browser-info" class="info-content"></div>
+			</div>
+
+			<div class="info-section">
+				<h2>Sistema</h2>
+				<div id="system-info" class="info-content"></div>
+			</div>
+
+			<div class="info-section">
+				<h2>Pantalla</h2>
+				<div id="screen-info" class="info-content"></div>
+			</div>
+
+			<div class="info-section">
+				<h2>Red</h2>
+				<div id="network-info" class="info-content"></div>
+			</div>
+
+			<div class="info-section">
+				<h2>Características</h2>
+				<div id="features-info" class="info-content"></div>
+			</div>
+		</div>
+
+		<div class="export-section">
+			<div id="message" class="message"></div>
+			<div class="export-header">
+				<button id="copy-btn" class="export-btn copy-btn">📋 Copiar</button>
+				<h2>Exportar Información</h2>
+				<button id="download-btn" class="export-btn download-btn">💾 Descargar</button>
+			</div>
+			<textarea id="export-textarea" class="export-textarea" readonly aria-label="Información del sistema para copiar o descargar"></textarea>
+		</div>
+	</div>
+
+	<script src="./assets/js/diagnostico.js?v=1.1.8"></script>
+</body>
+</html>
