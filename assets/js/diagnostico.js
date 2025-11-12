@@ -328,6 +328,30 @@ const cl_diagnostics = {
 			this.toggleTheme();
 		} );
 
+		// Info toggle button
+		document.getElementById( 'info-toggle' ).addEventListener( 'click', () => {
+			this.showInfoModal();
+		} );
+
+		// Modal close button
+		document.getElementById( 'modal-close' ).addEventListener( 'click', () => {
+			this.hideInfoModal();
+		} );
+
+		// Close modal clicking outside
+		document.getElementById( 'info-modal' ).addEventListener( 'click', ( e ) => {
+			if ( e.target.id === 'info-modal' ) {
+				this.hideInfoModal();
+			}
+		} );
+
+		// Close modal with ESC key
+		document.addEventListener( 'keydown', ( e ) => {
+			if ( e.key === 'Escape' && !document.getElementById( 'info-modal' ).classList.contains( 'hidden' ) ) {
+				this.hideInfoModal();
+			}
+		} );
+
 		// Copy button
 		document.getElementById( 'copy-btn' ).addEventListener( 'click', () => {
 			this.copyToClipboard();
@@ -337,6 +361,103 @@ const cl_diagnostics = {
 		document.getElementById( 'download-btn' ).addEventListener( 'click', () => {
 			this.downloadData();
 		} );
+	},
+
+	/**
+	 * Show info modal and load README
+	 */
+	showInfoModal: async function() {
+		const modal = document.getElementById( 'info-modal' );
+		modal.classList.remove( 'hidden' );
+		document.body.style.overflow = 'hidden';
+
+		// Load README if not already loaded
+		if ( !this.readmeLoaded ) {
+			await this.loadReadme();
+		}
+	},
+
+	/**
+	 * Hide info modal
+	 */
+	hideInfoModal: function() {
+		const modal = document.getElementById( 'info-modal' );
+		modal.classList.add( 'hidden' );
+		document.body.style.overflow = '';
+	},
+
+	/**
+	 * Load and parse README.md
+	 */
+	loadReadme: async function() {
+		const contentDiv = document.getElementById( 'readme-content' );
+
+		try {
+			const response = await fetch( 'README.md' );
+			if ( !response.ok ) {
+				throw new Error( 'No se pudo cargar el archivo README' );
+			}
+
+			const markdown = await response.text();
+			contentDiv.innerHTML = this.parseMarkdown( markdown );
+			this.readmeLoaded = true;
+		} catch ( error ) {
+			console.error( 'Error loading README:', error );
+			contentDiv.innerHTML = '<p style="color: var(--error-color);">Error al cargar la información del proyecto.</p>';
+		}
+	},
+
+	/**
+	 * Simple markdown to HTML parser
+	 */
+	parseMarkdown: function( markdown ) {
+		let html = markdown;
+
+		// Headers
+		html = html.replace( /^### (.*$)/gim, '<h3>$1</h3>' );
+		html = html.replace( /^## (.*$)/gim, '<h2>$1</h2>' );
+		html = html.replace( /^# (.*$)/gim, '<h1>$1</h1>' );
+
+		// Bold
+		html = html.replace( /\*\*(.*?)\*\*/g, '<strong>$1</strong>' );
+
+		// Code blocks
+		html = html.replace( /```[\s\S]*?```/g, ( match ) => {
+			const code = match.replace( /```/g, '' ).trim();
+			return `<pre><code>${this.escapeHtml( code )}</code></pre>`;
+		} );
+
+		// Inline code
+		html = html.replace( /`([^`]+)`/g, '<code>$1</code>' );
+
+		// Lists
+		html = html.replace( /^\* (.*$)/gim, '<li>$1</li>' );
+		html = html.replace( /^- (.*$)/gim, '<li>$1</li>' );
+		html = html.replace( /(<li>.*<\/li>)/s, '<ul>$1</ul>' );
+
+		// Paragraphs
+		html = html.split( '\n\n' ).map( paragraph => {
+			if ( !paragraph.startsWith( '<' ) ) {
+				return `<p>${paragraph.replace( /\n/g, '<br>' )}</p>`;
+			}
+			return paragraph;
+		} ).join( '\n' );
+
+		return html;
+	},
+
+	/**
+	 * Escape HTML special characters
+	 */
+	escapeHtml: function( text ) {
+		const map = {
+			'&': '&amp;',
+			'<': '&lt;',
+			'>': '&gt;',
+			'"': '&quot;',
+			"'": '&#039;'
+		};
+		return text.replace( /[&<>"']/g, ( m ) => map[m] );
 	},
 
 	/**
