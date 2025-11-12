@@ -1,1 +1,142 @@
-# Información del sistema de usuario
+# Sistema de Diagnóstico del Usuario
+
+Una aplicación web ligera y completa para recopilar información detallada del sistema del usuario, navegador y conexión de red. Ideal para soporte técnico, diagnóstico de problemas y análisis de compatibilidad.
+
+## Descripción
+
+Este sistema permite recopilar automáticamente información técnica del dispositivo del usuario de manera no invasiva, presentándola de forma clara y organizada. La información se puede copiar al portapapeles o descargar como archivo de texto para su posterior análisis.
+
+## Características principales
+
+### Recopilación de información
+
+El sistema recopila los siguientes datos:
+
+**Navegador:**
+- Nombre y versión del navegador
+- User Agent completo
+- Idioma y idiomas disponibles
+- Estado de cookies
+- Estado de conexión
+- Configuración Do Not Track
+
+**Sistema:**
+- Sistema operativo y versión
+- Plataforma
+- Tipo de dispositivo (móvil/escritorio)
+- Número de núcleos de CPU
+- Memoria RAM aproximada
+
+**Pantalla:**
+- Resolución total y disponible
+- Tamaño del viewport
+- Profundidad de color
+- Pixel ratio
+- Orientación de la pantalla
+
+**Red:**
+- Dirección IP pública
+- Proveedor de servicios (ISP)
+- Ubicación (ciudad, región, país)
+- Zona horaria
+- Tipo de conexión
+- Velocidad de conexión
+- Latencia (RTT)
+
+**Características del navegador:**
+- WebGL
+- WebRTC
+- Local Storage y Session Storage
+- IndexedDB
+- Service Workers
+- API de Notificaciones
+- Geolocalización
+- Battery API
+- Web Audio API
+- WebAssembly
+
+### Funcionalidades
+
+**Visualización en tiempo real:**
+La información se muestra organizada en tarjetas visuales categorizadas para una fácil lectura.
+
+**Modo oscuro:**
+Incluye un botón de alternancia para cambiar entre modo claro y oscuro. La preferencia se guarda en el navegador del usuario.
+
+**Exportación de datos:**
+- **Copiar al portapapeles:** Botón para copiar toda la información en formato texto estructurado
+- **Descargar archivo:** Genera un archivo TXT con nombre basado en fecha y hora (formato: info-usuario.YYYY_MM_DD_HH_MM.txt)
+
+**Interfaz responsive:**
+Diseño adaptable que funciona correctamente en dispositivos móviles, tablets y escritorio.
+
+**Sin dependencias externas:**
+JavaScript vanilla puro, sin frameworks ni librerías externas.
+
+## Tecnologías utilizadas
+
+- HTML5
+- CSS3 (con variables CSS y modo oscuro)
+- JavaScript ES6+
+- APIs del navegador (Navigator, Screen, Connection, etc.)
+- API de geolocalización IP (geojs.io)
+
+## Estructura del proyecto
+
+```
+info/
+├── index.html              # Página principal
+├── favicon.svg            # Icono de la aplicación
+├── README.md              # Documentación
+├── assets/
+│   ├── css/
+│   │   └── style.css     # Estilos con soporte para modo oscuro
+│   └── js/
+│       └── diagnostico.js # Lógica principal de la aplicación
+```
+
+## Instalación y uso
+
+1. Clona o descarga el repositorio
+2. Sube los archivos a tu servidor web
+3. Accede a `index.html` desde un navegador
+
+No requiere configuración adicional ni instalación de dependencias.
+
+## Privacidad y seguridad
+
+- Toda la recopilación de datos se realiza en el lado del cliente
+- No se envía información automáticamente a ningún servidor
+- El usuario tiene control total sobre qué hacer con sus datos
+- La información solo se exporta cuando el usuario lo solicita explícitamente
+- No se utilizan cookies ni tracking de terceros
+
+## Compatibilidad
+
+Compatible con todos los navegadores modernos:
+- Chrome/Edge 90+
+- Firefox 88+
+- Safari 14+
+- Opera 76+
+
+Algunas características avanzadas pueden no estar disponibles en navegadores más antiguos, pero la funcionalidad básica se mantiene.
+
+## Casos de uso
+
+- Soporte técnico remoto
+- Diagnóstico de problemas de compatibilidad
+- Análisis de características del navegador del usuario
+- Recopilación de información para reportes de bugs
+- Auditoría de configuración del sistema
+
+## Licencia
+
+Este proyecto es de código abierto y está disponible bajo licencia GPL v2.
+
+## Autor
+
+Desarrollado por Carlos Longarela
+
+## Contribuciones
+
+Las contribuciones, issues y pull requests son bienvenidas.
