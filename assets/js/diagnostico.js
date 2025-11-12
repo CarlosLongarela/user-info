@@ -413,19 +413,22 @@ const cl_diagnostics = {
 	parseMarkdown: function( markdown ) {
 		let html = markdown;
 
+		// Code blocks (debe ir antes que inline code)
+		html = html.replace( /```[\s\S]*?```/g, ( match ) => {
+			const code = match.replace( /```/g, '' ).trim();
+			return `<pre><code>${this.escapeHtml( code )}</code></pre>`;
+		} );
+
 		// Headers
 		html = html.replace( /^### (.*$)/gim, '<h3>$1</h3>' );
 		html = html.replace( /^## (.*$)/gim, '<h2>$1</h2>' );
 		html = html.replace( /^# (.*$)/gim, '<h1>$1</h1>' );
 
+		// Links [text](url)
+		html = html.replace( /\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>' );
+
 		// Bold
 		html = html.replace( /\*\*(.*?)\*\*/g, '<strong>$1</strong>' );
-
-		// Code blocks
-		html = html.replace( /```[\s\S]*?```/g, ( match ) => {
-			const code = match.replace( /```/g, '' ).trim();
-			return `<pre><code>${this.escapeHtml( code )}</code></pre>`;
-		} );
 
 		// Inline code
 		html = html.replace( /`([^`]+)`/g, '<code>$1</code>' );
