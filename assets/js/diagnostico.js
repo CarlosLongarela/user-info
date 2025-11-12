@@ -612,7 +612,7 @@ const cl_diagnostics = {
 		setTimeout( () => {
 			messageEl.textContent = '';
 			messageEl.className   = 'message';
-		}, 10000);
+		}, 8000);
 	}
 };
 
