@@ -135,10 +135,10 @@ Este proyecto es de código abierto y está disponible bajo licencia GPL v2.
 
 ## Autor
 
-Desarrollado por [Carlos Longarela](https://tabernawp.com/)
+Desarrollado por Carlos Longarela https://tabernawp.com/
 
 ## Contribuciones
 
 Las contribuciones, issues y pull requests son bienvenidas.
 
-[Repositorio del proyecto en GitHub](https://github.com/CarlosLongarela/user-info)
+Repositorio del proyecto en GitHub https://github.com/CarlosLongarela/user-info
