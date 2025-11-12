@@ -371,7 +371,7 @@ h1 {
 }
 
 .message {
-    margin-top: var(--spacing-md);
+    margin-block: var(--spacing-md);
     padding: var(--spacing-md);
     border-radius: var(--border-radius);
     font-weight: 600;
