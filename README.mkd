@@ -20,6 +20,7 @@ El sistema recopila los siguientes datos:
 - Estado de conexión
 - Configuración Do Not Track
 
+
 **Sistema:**
 - Sistema operativo y versión
 - Plataforma
@@ -27,12 +28,14 @@ El sistema recopila los siguientes datos:
 - Número de núcleos de CPU
 - Memoria RAM aproximada
 
+
 **Pantalla:**
 - Resolución total y disponible
 - Tamaño del viewport
 - Profundidad de color
 - Pixel ratio
 - Orientación de la pantalla
+
 
 **Red:**
 - Dirección IP pública
@@ -42,6 +45,7 @@ El sistema recopila los siguientes datos:
 - Tipo de conexión
 - Velocidad de conexión
 - Latencia (RTT)
+
 
 **Características del navegador:**
 - WebGL
