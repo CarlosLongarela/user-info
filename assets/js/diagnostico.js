@@ -387,13 +387,13 @@ const cl_diagnostics = {
 	},
 
 	/**
-	 * Load and parse README.md
+	 * Load and parse README.mkd
 	 */
 	loadReadme: async function() {
 		const contentDiv = document.getElementById( 'readme-content' );
 
 		try {
-			const response = await fetch( 'README.md' );
+			const response = await fetch( 'README.mkd' );
 			if ( !response.ok ) {
 				throw new Error( 'No se pudo cargar el archivo README' );
 			}
