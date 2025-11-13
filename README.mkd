@@ -1,4 +1,4 @@
-# Sistema de Diagnóstico del Usuario
+# Sistema de diagnóstico del usuario
 
 Una aplicación web ligera y completa para recopilar información detallada del sistema del usuario, navegador y conexión de red. Ideal para soporte técnico, diagnóstico de problemas y análisis de compatibilidad.
 
